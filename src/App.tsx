@@ -33,7 +33,7 @@ export default function App() {
           <div className="flex items-center justify-between gap-3 mb-4">
             <div className="flex items-center gap-3">
               <Film className="w-8 h-8 text-indigo-400" />
-              <h1 className="text-2xl font-bold text-white">CineApp</h1>
+              <h1 className="text-2xl font-bold text-white">RepelisPlus</h1>
             </div>
             <div className="flex gap-2">
               <button
