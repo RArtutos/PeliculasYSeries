@@ -12,11 +12,16 @@ export default function App() {
   const [selectedItem, setSelectedItem] = useState<TMDBMovie | TMDBTVShow | null>(null);
   const { items, loading, error, hasMore, loadMore } = useMedia(mediaType);
 
+  const getTitle = (item: TMDBMovie | TMDBTVShow) => {
+    return mediaType === 'movie' ? (item as TMDBMovie).title : (item as TMDBTVShow).name;
+  };
+
   const filteredItems = items.filter(item => {
-    const title = mediaType === 'movie' ? (item as TMDBMovie).title : (item as TMDBTVShow).name;
+    const title = getTitle(item);
     return (
-      title.toLowerCase().includes(search.toLowerCase()) ||
-      item.overview.toLowerCase().includes(search.toLowerCase())
+      title?.toLowerCase().includes(search.toLowerCase()) ||
+      item.overview?.toLowerCase().includes(search.toLowerCase()) ||
+      ''
     );
   });
 
